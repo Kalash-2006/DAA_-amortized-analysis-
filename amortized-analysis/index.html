@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amortized Analysis - DAA Academic Project</title>
+  
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="brand-logo">
+        <i class="fa-solid fa-chart-line"></i> AMORTIZED<span>ANALYSIS</span>
+      </a>
+      
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-item active">Home</a></li>
+        <li><a href="#concept" class="nav-item">Concept</a></li>
+        <li><a href="#methods" class="nav-item">Methods</a></li>
+        <li><a href="#visualization" class="nav-item">Visualization</a></li>
+        <li><a href="#example" class="nav-item">Example</a></li>
+        <li><a href="#calculator" class="nav-item">Calculator</a></li>
+        <li><a href="#applications" class="nav-item">Applications</a></li>
+      </ul>
+
+      <div class="hamburger" id="hamburger">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero-section">
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="badge">DAA Academic Project</span>
+        <h1>AMORTIZED <span>ANALYSIS</span></h1>
+        <p class="hero-subtitle">Understanding the Average Cost of Operations</p>
+        <p class="hero-description">
+          Analyze a sequence of operations efficiently, even when some individual operations are expensive.
+        </p>
+        <div class="hero-btns">
+          <a href="#concept" class="btn btn-primary">Explore Concepts <i class="fa-solid fa-arrow-down"></i></a>
+          <a href="#visualization" class="btn btn-secondary">Try Interactive Visualizer <i class="fa-solid fa-play"></i></a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="visual-card-wrapper">
+          <div class="visual-card">
+            <i class="fa-solid fa-microchip"></i>
+            <span>DYNAMIC ARRAY</span>
+          </div>
+          <div class="floating-tag tag-1">O(1) Avg</div>
+          <div class="floating-tag tag-2">O(n) Worst</div>
+          <div class="floating-tag tag-3">COST</div>
+          <div class="floating-tag tag-4">OPERATIONS</div>
+          <div class="floating-tag tag-5">AVERAGE</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRODUCTION SECTION -->
+  <section id="concept" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>What is Amortized Analysis?</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="quote-box">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p class="definition">
+          "Amortized analysis is a technique to analyze the average cost per operation over a sequence of operations, even if some individual operations are expensive."
+        </p>
+        <p class="sub-definition">
+          It guarantees that the average cost remains small over a sequence of operations, providing efficient long-term performance without relying on probabilistic assumptions.
+        </p>
+      </div>
+
+      <div class="cards-grid grid-3">
+        <div class="card intro-card">
+          <div class="card-icon green-icon"><i class="fa-solid fa-calculator"></i></div>
+          <h3>AVERAGE COST</h3>
+          <p>Spreads the high expense of occasional operations evenly over the entire sequence of operations.</p>
+        </div>
+
+        <div class="card intro-card">
+          <div class="card-icon orange-icon"><i class="fa-solid fa-infinity"></i></div>
+          <h3>LONG-TERM PERFORMANCE</h3>
+          <p>Provides strong upper bounds on total runtime performance over time instead of single-step worst cases.</p>
+        </div>
+
+        <div class="card intro-card">
+          <div class="card-icon purple-icon"><i class="fa-solid fa-bolt"></i></div>
+          <h3>EXPENSIVE OPERATIONS</h3>
+          <p>Handles costly operations (e.g., dynamic array resizing) safely without overestimating overall complexity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY AMORTIZED ANALYSIS -->
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="section-title">
+        <h2>Why Amortized Analysis?</h2>
+        <p>Traditional worst-case analysis can be overly pessimistic. Here is why we use Amortized Analysis:</p>
+        <div class="underline"></div>
+      </div>
+
+      <div class="cards-grid grid-4">
+        <div class="card why-card">
+          <div class="why-number">01</div>
+          <h3>Sequence Analysis</h3>
+          <p>Evaluates a sequence of operations as a unified whole rather than inspecting each in isolation.</p>
+        </div>
+
+        <div class="card why-card">
+          <div class="why-number">02</div>
+          <h3>Occasional Heavy Costs</h3>
+          <p>Prevents a rare $O(n)$ worst-case operation from giving a misleading representation of the algorithm.</p>
+        </div>
+
+        <div class="card why-card">
+          <div class="why-number">03</div>
+          <h3>Realistic Performance</h3>
+          <p>Reflects true operational performance in practical computer science applications.</p>
+        </div>
+
+        <div class="card why-card">
+          <div class="why-number">04</div>
+          <h3>Dynamic Data Structures</h3>
+          <p>Essential for validating dynamic arrays, splay trees, and disjoint-set data structures.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE METHODS -->
+  <section id="methods" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Three Methods of Amortized Analysis</h2>
+        <p>Three distinct theoretical frameworks used to calculate amortized bounds:</p>
+        <div class="underline"></div>
+      </div>
+
+      <div class="cards-grid grid-3">
+        <!-- Card 1 -->
+        <div class="card method-card">
+          <div class="method-header">
+            <i class="fa-solid fa-layer-group"></i>
+            <h3>AGGREGATE METHOD</h3>
+          </div>
+          <p class="method-desc">Calculate the total cost of <em>n</em> operations and divide it by <em>n</em> to get the average cost.</p>
+          <div class="formula-box">
+            <span>Amortized Cost = Total Cost / n</span>
+          </div>
+          <p class="example-text">If total cost of <em>n</em> operations is O(n), Amortized Cost = O(1).</p>
+          <button class="btn-learn" onclick="openModal('aggregate')">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card method-card">
+          <div class="method-header">
+            <i class="fa-solid fa-piggy-bank"></i>
+            <h3>ACCOUNTING METHOD</h3>
+          </div>
+          <p class="method-desc">Assign specific charges to operations and store extra credits from cheap operations to pay for expensive ones.</p>
+          <div class="credit-anim">
+            <i class="fa-solid fa-coins coin-icon"></i>
+            <span class="credit-text">+2 Credits Saved</span>
+          </div>
+          <button class="btn-learn" onclick="openModal('accounting')">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card method-card">
+          <div class="method-header">
+            <i class="fa-solid fa-charging-station"></i>
+            <h3>POTENTIAL METHOD</h3>
+          </div>
+          <p class="method-desc">Represent extra work as stored potential energy $\Phi(D_i)$ in the data structure and spend it during expensive steps.</p>
+          <div class="potential-bar-wrapper">
+            <div class="potential-bar" id="potentialBar"></div>
+          </div>
+          <button class="btn-learn" onclick="openModal('potential')">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULA SECTION -->
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="section-title">
+        <h2>Mathematical Formula</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="formula-container-card">
+        <div class="formula-display">
+          <span class="f-title">Amortized Cost</span>
+          <span class="f-equals">=</span>
+          <div class="fraction">
+            <span class="numerator">Total Cost of n Operations</span>
+            <span class="denominator">n</span>
+          </div>
+        </div>
+        <p class="formula-caption">
+          "Amortized cost represents the average cost per operation over a sequence, guaranteeing a low cost over time."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE DYNAMIC ARRAY VISUALIZATION -->
+  <section id="visualization" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Interactive Dynamic Array Visualizer</h2>
+        <p>Test how inserting elements triggers automatic array resizing and observe costs in real-time!</p>
+        <div class="underline"></div>
+      </div>
+
+      <div class="visualizer-container">
+        <!-- Controls & Dashboard -->
+        <div class="vis-controls">
+          <button id="btn-insert" class="btn btn-primary"><i class="fa-solid fa-plus"></i> INSERT ELEMENT</button>
+          <button id="btn-reset" class="btn btn-danger"><i class="fa-solid fa-rotate-right"></i> RESET SIMULATION</button>
+        </div>
+
+        <!-- Live Stats -->
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-label">Total Operations</span>
+            <span id="stat-ops" class="stat-value">0</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Total Cost</span>
+            <span id="stat-cost" class="stat-value">0</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Amortized Cost</span>
+            <span id="stat-amortized" class="stat-value">0.00</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Current Capacity</span>
+            <span id="stat-capacity" class="stat-value">4</span>
+          </div>
+        </div>
+
+        <!-- Status Message / Alert -->
+        <div id="vis-status" class="vis-status">Ready to insert elements. Initial Capacity: 4</div>
+
+        <!-- Array Canvas -->
+        <div class="array-display-area">
+          <h3>Memory Layout</h3>
+          <div id="array-container" class="array-container">
+            <!-- Dynamically populated boxes -->
+          </div>
+        </div>
+
+        <!-- History Table -->
+        <div class="history-section">
+          <h3>Operation Log</h3>
+          <div class="table-wrapper">
+            <table class="history-table">
+              <thead>
+                <tr>
+                  <th>Operation #</th>
+                  <th>Cost</th>
+                  <th>Reason / Action</th>
+                  <th>Capacity</th>
+                </tr>
+              </thead>
+              <tbody id="history-body">
+                <!-- Log items dynamic -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORST CASE VS AMORTIZED -->
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="section-title">
+        <h2>Worst-Case vs. Amortized Analysis</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Worst-Case Analysis</th>
+              <th>Amortized Analysis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Focus</strong></td>
+              <td>Single most expensive operation</td>
+              <td>Average cost over a sequence of operations</td>
+            </tr>
+            <tr>
+              <td><strong>Normal Insertion Cost</strong></td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+            </tr>
+            <tr>
+              <td><strong>Resize Operation Cost</strong></td>
+              <td>O(n)</td>
+              <td>O(1) amortized</td>
+            </tr>
+            <tr>
+              <td><strong>Practical Realism</strong></td>
+              <td>Pessimistic; ignores cheap steps</td>
+              <td>Realistic long-term operational cost</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="takeaway-banner">
+        <i class="fa-solid fa-lightbulb"></i>
+        <p>"An individual operation may be expensive (e.g., array resizing), but the average cost over a sequence remains small."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRACTICAL EXAMPLE -->
+  <section id="example" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Example: Dynamic Array Insertion</h2>
+        <p>Mathematical proof demonstrating amortized O(1) cost across 9 insertions.</p>
+        <div class="underline"></div>
+      </div>
+
+      <div class="example-grid">
+        <div class="example-card">
+          <h3>Insertion Sequence &amp; Costs</h3>
+          <div class="sequence-list">
+            <div class="seq-item"><span>Insertion</span><strong>1 2 3 4 5 6 7 8 9</strong></div>
+            <div class="seq-item highlight"><span>Cost</span><strong>1 1 1 1 5 1 1 1 9</strong></div>
+          </div>
+          <p class="note">* Note: Cost = 5 at Insertion #5 (1 insert + 4 copies) and Cost = 9 at Insertion #9 (1 insert + 8 copies).</p>
+        </div>
+
+        <div class="example-card calc-breakdown">
+          <h3>Calculation</h3>
+          <div class="step-math">
+            <p><strong>Total Cost</strong> = 1 + 1 + 1 + 1 + 5 + 1 + 1 + 1 + 9 = <span>21</span></p>
+            <p><strong>Number of Operations (n)</strong> = <span>9</span></p>
+            <div class="final-calc">
+              <span>Amortized Cost</span> = 21 / 9 = <strong>2.33</strong>
+            </div>
+          </div>
+          <div class="conclusion-badge">
+            <i class="fa-solid fa-check-circle"></i> Result: Amortized Cost approx 2.33 = O(1)
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR SECTION -->
+  <section id="calculator" class="section bg-alt">
+    <div class="container">
+      <div class="section-title">
+        <h2>Amortized Cost Calculator</h2>
+        <p>Compute amortized efficiency for custom sequences.</p>
+        <div class="underline"></div>
+      </div>
+
+      <div class="calculator-card">
+        <form id="calc-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="num-ops">Number of Operations (n)</label>
+            <input type="number" id="num-ops" placeholder="e.g. 9" min="1" required />
+          </div>
+
+          <div class="form-group">
+            <label for="total-cost">Total Cost</label>
+            <input type="number" id="total-cost" placeholder="e.g. 21" min="0" required />
+          </div>
+
+          <button type="button" id="btn-calculate" class="btn btn-primary btn-block">
+            <i class="fa-solid fa-calculator"></i> CALCULATE
+          </button>
+        </form>
+
+        <div id="calc-result" class="calc-result hidden">
+          <h4>Calculation Result</h4>
+          <div class="res-value" id="res-val">0.00</div>
+          <p id="res-desc">Amortized Cost per Operation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATIONS -->
+  <section id="applications" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Applications of Amortized Analysis</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="cards-grid grid-3">
+        <div class="card app-card">
+          <i class="fa-solid fa-boxes-stacked"></i>
+          <h3>Dynamic Arrays</h3>
+          <p>Used in <code>std::vector</code> (C++) or <code>ArrayList</code> (Java) for efficient dynamic resizing.</p>
+        </div>
+
+        <div class="card app-card">
+          <i class="fa-solid fa-hashtag"></i>
+          <h3>Hash Tables / Rehashing</h3>
+          <p>Maintains efficient $O(1)$ lookups and insertions during table doubling/rehashing.</p>
+        </div>
+
+        <div class="card app-card">
+          <i class="fa-solid fa-network-wired"></i>
+          <h3>Disjoint-Set (Union-Find)</h3>
+          <p>Path compression and rank heuristics achieve near-constant amortized time bounds.</p>
+        </div>
+
+        <div class="card app-card">
+          <i class="fa-solid fa-tree"></i>
+          <h3>Splay Trees</h3>
+          <p>Self-adjusting binary search trees that provide efficient $O(\log n)$ amortized operation access.</p>
+        </div>
+
+        <div class="card app-card">
+          <i class="fa-solid fa-memory"></i>
+          <h3>Memory Management</h3>
+          <p>Optimizes memory pool allocation strategies and garbage collection routines.</p>
+        </div>
+
+        <div class="card app-card">
+          <i class="fa-solid fa-sliders"></i>
+          <h3>Algorithm Design</h3>
+          <p>Enables accurate complexity bounding for complex multi-step data structure algorithms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVANTAGES -->
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="section-title">
+        <h2>Key Advantages</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="advantages-list">
+        <div class="adv-item">
+          <i class="fa-solid fa-circle-check"></i>
+          <div>
+            <h4>Efficient Average Performance</h4>
+            <p>Confirms that overall average performance remains small over continuous usage.</p>
+          </div>
+        </div>
+
+        <div class="adv-item">
+          <i class="fa-solid fa-circle-check"></i>
+          <div>
+            <h4>Handles Rare Expensive Operations</h4>
+            <p>Accurately accounts for heavy dynamic operations without over-penalizing system scores.</p>
+          </div>
+        </div>
+
+        <div class="adv-item">
+          <i class="fa-solid fa-circle-check"></i>
+          <div>
+            <h4>Essential for Dynamic Data Structures</h4>
+            <p>Crucial for building efficient vectors, hash tables, and self-adjusting trees.</p>
+          </div>
+        </div>
+
+        <div class="adv-item">
+          <i class="fa-solid fa-circle-check"></i>
+          <div>
+            <h4>Realistic Long-Term Analysis</h4>
+            <p>Provides a dependable guarantee on sequence runtime execution.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY TAKEAWAY -->
+  <section class="section takeaway-section">
+    <div class="container">
+      <div class="takeaway-card">
+        <h2>KEY TAKEAWAY</h2>
+        <p class="takeaway-text">
+          "Amortized Analysis shows that occasional costly operations can still result in efficient average performance over a sequence of operations."
+        </p>
+        <div class="highlight-phrase">
+          "Expensive Occasionally $\neq$ Expensive Overall"
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <h3>AMORTIZED ANALYSIS</h3>
+      <p class="subtitle">Design and Analysis of Algorithms (DAA)</p>
+      <p class="motto">"Learn • Analyze • Optimize"</p>
+      <div class="footer-bottom">
+        <p>&copy; Academic Project — Design and Analysis of Algorithms.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL FOR METHOD DETAILS -->
+  <div id="modal-backdrop" class="modal-backdrop">
+    <div class="modal-box">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <div id="modal-content">
+        <!-- Dynamically filled -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>
